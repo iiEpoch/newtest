@@ -1,7 +1,5 @@
 #!/bin/bash
 
-read -p "test_path:" test_path
-
 read -p "report_path:" report_path
 
 mkdir ${report_path}
