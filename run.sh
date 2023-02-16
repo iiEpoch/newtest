@@ -33,8 +33,6 @@ disable_wal="false"
 
 value=128
 
-mkdir ${test_path}/${value_size}B
-
 data_path="/mnt/nvme5"
 
 
