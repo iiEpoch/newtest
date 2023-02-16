@@ -29,7 +29,7 @@ do
 	sleep 10
 	
 	echo "进行分层测试写${dataset}G-value${value}-Disable_Wal-${disable_wal}"
-	./overwrite_layer.sh ${ssd_path} ${dataset} ${value} ${report_path} ${disable_wal} ${path_pmem}
+	./overwrite_layer.sh ${path_ssd} ${dataset} ${value} ${report_path} ${disable_wal} ${path_pmem}
 	
 	
 	sleep 10
