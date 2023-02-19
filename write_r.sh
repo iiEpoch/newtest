@@ -1,4 +1,6 @@
 #!/bin/bash
+#iostat启动
+iostat -x 5 |tee ${4}/iostat-Dwrite_layer_Dataset_${2}G_Value_${3}_DisWal_${5}.txt &
 
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 declare -i data=${2}\*1024\*1024\*1024\/${3}
@@ -21,5 +23,7 @@ numactl -C 0-31 ./db_bench --benchmarks="fillrandom,stats,levelstats" \
 --target_file_size_base=67108864 \
 --sync=false \
 --report_interval_seconds=5 \
---report_file=${4}/Dwrite_Dataset_${2}G_Value_${3}_DisWal_${5}.csv \
-| tee ${4}/Dwrite_Dataset_${2}G_Value_${3}_DisWal_${5}.txt \
+--report_file=${4}/Dwrite_layer_Dataset_${2}G_Value_${3}_DisWal_${5}.csv \
+| tee ${4}/Dwrite_layer_Dataset_${2}G_Value_${3}_DisWal_${5}.txt \
+
+ps -ef | grep iostat | grep -v grep | awk '{print $2}' | xargs kill -9
