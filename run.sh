@@ -31,8 +31,13 @@ do
 
 	sleep 5
 
-	echo "本次测试完成删除test目录"
 	rm -rf ${test_path}
+	
+	mkdir ${test_path}
+	./write.sh ${test_path} ${dataset} ${value} ${report_path} ${disable_wal}
+	rm -rf ${test_path}
+	
+	echo "本次测试完成删除test目录"
 	sleep 10
 
 done
