@@ -5,33 +5,11 @@ read -p "test_path:" test_path
 read -p "report_path:" report_path
 mkdir ${report_path}
 
-#创建128B数据集
-
-path="/mnt/nvme5"
-
-path_old="/mnt/nvme5/4096"
-
-rm -rf ${path_old}
-
-mkdir ${path}
-
-value_size=128
-
-mkdir ${path}/${value_size}B
-
-for dataset in {200,400}
-do	
-	echo "创建${dataset}G-${value_size}B数据集"
-	./writedata.sh ${path} ${dataset} ${value_size}
-	sleep 10
-done
-
-
-
 # WAL state(true or false)
 disable_wal="false"
 
 value=128
+
 
 data_path="/mnt/nvme5"
 
@@ -56,6 +34,5 @@ do
 	echo "本次测试完成删除test目录"
 	rm -rf ${test_path}
 	sleep 10
-
 
 done
