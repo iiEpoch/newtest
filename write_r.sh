@@ -5,7 +5,6 @@ iostat -x 5 |tee ${4}/iostat-Dwrite_layer_Dataset_${2}G_Value_${3}_DisWal_${5}.t
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 declare -i data=${2}\*1024\*1024\*1024\/${3}
 numactl -C 0-31 ./db_bench --benchmarks="fillrandom,stats,levelstats" \
---use_existing_db=1 \
 --db=${1}/128B \
 --db_paths_1=${1}/128B \
 --db_paths_2=${6}/128B \
