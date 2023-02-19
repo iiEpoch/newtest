@@ -32,7 +32,7 @@ do
 	sleep 5
 
 	rm -rf ${test_path}
-	
+	echo "进行直接测试写${dataset}G-value${value}-Disable_Wal-${disable_wal}"
 	mkdir ${test_path}
 	./write.sh ${test_path} ${dataset} ${value} ${report_path} ${disable_wal}
 	rm -rf ${test_path}
