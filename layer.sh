@@ -40,6 +40,14 @@ do
 	rm -rf ${path_ssd}
 	rm -rf ${path_pmem}
 	
+	mkdir ${path_ssd}
+	mkdir ${path_pmem}
+	
+	echo "进行直接分层测试写${dataset}G-value${value}-Disable_Wal-${disable_wal}"
+	./write_r.sh ${path_ssd} ${dataset} ${value} ${report_path} ${disable_wal} ${path_pmem}
+	
+	rm -rf ${path_ssd}
+	rm -rf ${path_pmem}
 	#删除数据
 	sleep 5
 done
