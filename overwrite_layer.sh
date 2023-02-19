@@ -3,7 +3,7 @@ ulimit -n 1048576
 echo 3 >/proc/sys/vm/drop_caches
 
 #iostat启动
-iostat -x 5 | tee ${4}/iostat-write-Dataset_${2}G_Value_${3}_DisWal_${5}.txt &
+iostat -x 5 | tee ${4}/iostat-write-layer-Dataset_${2}G_Value_${3}_DisWal_${5}.txt &
 
 ###Start Emon
 source /opt/intel/emon_nda_11.32_linux_013109108d9bbb1/sep_vars.sh
@@ -32,8 +32,8 @@ numactl -C 0-31 ./db_bench --benchmarks="overwrite,stats,levelstats" \
 --target_file_size_base=67108864 \
 --sync=false \
 --report_interval_seconds=5 \
---report_file=${4}/write_Dataset_${2}G_Value_${3}_DisWal_${5}.csv \
-| tee ${4}/write_Dataset_${2}G_Value_${3}_DisWal_${5}.txt \
+--report_file=${4}/write_layer_Dataset_${2}G_Value_${3}_DisWal_${5}.csv \
+| tee ${4}/write_layer_Dataset_${2}G_Value_${3}_DisWal_${5}.txt \
 
 ###Emon finish
 emon -stop
