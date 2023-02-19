@@ -5,10 +5,10 @@ read -p "report_path:" report_path
 mkdir ${report_path}
 
 #data_path_ssd
-path_ssd=
+path_ssd="/mnt/sda/128"
 
 #data_path_pmem
-path_pmem=
+path_pmem="/mnt/pmem0/128"
 
 mkdir ${path_ssd}
 
@@ -23,6 +23,9 @@ value=128
 
 for dataset in {200,400}
 do	
+	mkdir ${path_ssd}
+
+	mkdir ${path_pmem}
 	
 	echo "创建${dataset}G-${value_size}B数据集"
 	./writelayer.sh ${path_ssd} ${path_pmem} ${dataset} ${value_size}
