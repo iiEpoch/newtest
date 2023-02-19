@@ -1,6 +1,6 @@
 #!/bin/bash
 
-path="/mnt/nvme5/128"
+path="/mnt/nvme5"
 
 path_old="/mnt/nvme5/4096"
 
