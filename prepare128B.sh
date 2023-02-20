@@ -2,7 +2,7 @@
 
 path="/mnt/nvme5"
 
-path_old="/mnt/nvme5/4096"
+path_old="/mnt/nvme5/4096B"
 
 rm -rf ${path_old}
 
