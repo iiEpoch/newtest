@@ -13,7 +13,7 @@ emon -collect-edp > /home/rocksdb_wjy/emonresult/write-Dataset_${2}G_Value_${3}_
 
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 declare -i data=${2}\*1024\*1024\*1024\/${3}
-numactl -C 0-31 ./db_bench --benchmarks="overwrite,stats,levelstats" \
+numactl -C 0-31 ./db_bench_l --benchmarks="overwrite,stats,levelstats" \
 --use_existing_db=1 \
 --db=${1}/128B \
 --db_paths_1=${1}/128B \
