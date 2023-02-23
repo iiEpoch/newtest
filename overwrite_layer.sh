@@ -16,8 +16,8 @@ declare -i data=${2}\*1024\*1024\*1024\/${3}
 numactl -C 0-31 ./db_bench_l --benchmarks="overwrite,stats,levelstats" \
 --use_existing_db=1 \
 --db=${1}/128B \
---db_paths_1=${1}/128B \
---db_paths_2=${6}/128B \
+--db_paths_1=${6}/128B \
+--db_paths_2=${1}/128B \
 --value_size=${3} --key_size=16 --enable_pipelined_write=true \
 --disable_wal=${5} \
 --writes=15000000 \
